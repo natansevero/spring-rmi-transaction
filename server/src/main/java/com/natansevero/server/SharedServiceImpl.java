@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.natansevero.server;
 
 import com.natansevero.server.infra.ConnFactory;
@@ -16,6 +12,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -28,7 +25,7 @@ public class SharedServiceImpl implements SharedService {
     private ConnFactory conn;
     
     @Override
-    @Transactional(rollbackFor = SQLException.class)
+    @Transactional(rollbackFor = Exception.class)
     public void insertAll(List<String> datas) throws SQLException {
         for(String data: datas) {        
             String sql = "insert into server(hello) values (?)";
@@ -36,8 +33,7 @@ public class SharedServiceImpl implements SharedService {
             PreparedStatement stmt = conn.getConnection().prepareCall(sql);
             stmt.setString(1, data);
                 
-            int count = stmt.executeUpdate();
-            System.out.println(count);
+            stmt.executeUpdate();
         }   
     }
 

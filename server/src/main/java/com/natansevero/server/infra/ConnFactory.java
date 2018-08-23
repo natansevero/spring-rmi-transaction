@@ -8,6 +8,7 @@ package com.natansevero.server.infra;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -17,6 +18,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ConnFactory {
     
+    @Bean
     public Connection getConnection() throws SQLException {
         return DriverManager.getConnection("jdbc:h2:mem:;"
                 + "INIT=RUNSCRIPT FROM './src/main/resources/init.sql'\\;", "sa", "");

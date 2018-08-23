@@ -34,7 +34,7 @@ public class RmiClient {
     public static void main(String[] args) {
         SharedService service = SpringApplication.run(RmiClient.class, args).getBean(SharedService.class);
         
-        List<String> list1 = Arrays.asList("Natan", "Thidsdsdsdsdsds", "flufe");
+        List<String> list1 = Arrays.asList("Natan", "This name is more than 10", "flufe");
         try {
             service.insertAll(list1);
         } catch (SQLException ex) {
@@ -42,12 +42,12 @@ public class RmiClient {
         }
         System.out.println(service.listAll());
         
-//        List<String> list2 = Arrays.asList("Alann", "Ari");
-//        try {
-//            service.insertAll(list2);
-//        } catch (SQLException ex) {
-//            System.err.println(ex.getMessage());
-//        }
-//        System.out.println(service.listAll());
+        List<String> list2 = Arrays.asList("Alann", "Ari");
+        try {
+            service.insertAll(list2);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        System.out.println(service.listAll());
     }
 }
