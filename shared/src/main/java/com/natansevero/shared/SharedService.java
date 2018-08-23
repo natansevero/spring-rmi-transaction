@@ -14,5 +14,5 @@ import java.util.List;
  */
 public interface SharedService {
     void insertAll(List<String> datas) throws SQLException;
-    List<String> listAll();
+    List<String> listAll() throws SQLException;
 }

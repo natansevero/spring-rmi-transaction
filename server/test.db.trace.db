@@ -1,0 +1,6 @@
+2018-08-23 16:16:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "HELLO VARCHAR(10) NOT NULL": "'This name is more than 10' (25)"; SQL statement:
+insert into server(hello) values (?) [22001-191]
+2018-08-23 16:19:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "HELLO VARCHAR(10) NOT NULL": "'This name is more than 10' (25)"; SQL statement:
+insert into server(hello) values (?) [22001-191]

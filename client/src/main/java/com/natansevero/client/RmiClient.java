@@ -31,10 +31,11 @@ public class RmiClient {
         return rmiProxyFactory;
     }
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         SharedService service = SpringApplication.run(RmiClient.class, args).getBean(SharedService.class);
         
         List<String> list1 = Arrays.asList("Natan", "This name is more than 10", "flufe");
+        //List<String> list1 = Arrays.asList("Natan", "flufe");
         try {
             service.insertAll(list1);
         } catch (SQLException ex) {

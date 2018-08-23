@@ -8,7 +8,7 @@
  * Created: Aug 22, 2018
  */
 
-create table server (
+create table IF NOT EXISTS server (
     id serial,
     hello varchar(10) not null,
     primary key(id)

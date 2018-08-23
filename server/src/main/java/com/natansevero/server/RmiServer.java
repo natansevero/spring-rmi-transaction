@@ -1,11 +1,12 @@
 
 package com.natansevero.server;
 
-import com.natansevero.shared.SharedService;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.remoting.rmi.RmiServiceExporter;
+
+import com.natansevero.shared.SharedService;
 
 /**
  *
@@ -34,6 +35,7 @@ public class RmiServer {
     }
     
     public static void main(String[] args) {
-        SpringApplication.run(RmiServer.class, args);
+        //SpringApplication.run(RmiServer.class, args);
+    	AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(RmiServer.class);
     }
 }
